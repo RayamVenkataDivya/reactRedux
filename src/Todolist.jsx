@@ -23,7 +23,7 @@ function Todolist(props){
 function mapStateToProps(state){return state.t}
 function mapDispatchToProps(dispatch){
     return {
-        addTask:(nT)=>{dispatch(addNewTodo(nT))},
+        addTask:(nt)=>{dispatch(addNewTodo(nt))},
         deleteTask:(i)=>{dispatch(delTodo(i))}
     }
 }

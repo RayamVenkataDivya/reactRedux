@@ -7,8 +7,8 @@ export function decrementCount(){
 export function resetCount(){
     return {type:"RESET"}
 }
-export function addNewTodo(nT){
-    return{type:"ADDTODO",payload:nT}
+export function addNewTodo(nt){
+    return{type:"ADDTODO",payload:nt}
 }
 export function delTodo(i){
     return {type:"DELETETODO",payload:i}
