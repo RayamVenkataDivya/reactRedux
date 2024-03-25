@@ -1,11 +1,11 @@
 const initialState={
-    todos:["complete work","goto office"]
+    todos:["goto office","pay emi"]
 }
 function todoReducer(state=initialState,action){
     if(action.type==="ADDTODO"){
         return {...state,todos:[...state.todos,action.payload]}
     }
-    if(action.type==="DELETETODO"){
+    if(action.type==='DELETETODO'){
         var temp=[...state.todos]
         temp.splice(action.payload,1)
         return {...state,todos:[...temp]}

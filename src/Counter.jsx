@@ -1,25 +1,27 @@
-import React from 'react';
-import {connect} from "react-redux"
+import React from 'react'
+import { connect } from 'react-redux'
+import { decrementCount, resetCount } from './store/actions'
+import { incrementCount } from './store/actions'
+
 function Counter(props){
     console.log(props)
     return (
-        <div style={{border:"2px solid black",padding:"10px",margin:"15px"}}>
-            <h1>Count:{props.count}</h1>
-            <button onClick={()=>{props.incre()}}>Increment</button>&nbsp;&nbsp;
-            <button onClick={()=>{props.decre()}}>Decrement</button>&nbsp;&nbsp;
-            <button onClick={()=>{props.rese()}}>Reset</button>&nbsp;&nbsp;
+        <div style={{border:"2px solid",padding:"15px",margin:"10px"}}>
+            <h2>Counter:{props.count}</h2>
+            <button onClick={()=>{props.increment()}}>Increment</button>&nbsp;&nbsp;&nbsp;
+            <button onClick={()=>{props.decrement()}}>Decrement</button>&nbsp;&nbsp;&nbsp;
+            <button onClick={()=>{props.reset()}}>Reset</button>&nbsp;&nbsp;
         </div>
     )
 }
 
-export default  connect(
-    function(state){return state.c},
-    function(dispatch){
-        return{
-            incre:()=>{dispatch({type:"INC"})},
-            decre:()=>{dispatch({type:"DEC"})},
-            rese:()=>{dispatch({type:"RESET"})}
-        }
+function mapStateToProps(state){return state.c}
+
+function mapDispatchToProps(dispatch){
+    return {
+        increment:()=>{dispatch(incrementCount())},
+        decrement:()=>{dispatch(decrementCount())},
+        reset:()=>{dispatch(resetCount())}
     }
-    )
-    (Counter);
+}
+export default connect(mapStateToProps,mapDispatchToProps)(Counter);
