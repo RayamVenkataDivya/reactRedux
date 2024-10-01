@@ -1,16 +1,14 @@
 import './App.css';
-import { store } from './app/store';
-import { Provider } from 'react-redux';
-import Counter from './features/counter/Counter';
-import Todolist from './features/todolist/Todolist';
+import React from 'react';
+
 function App() {
+  const [count, setCount] = React.useState(0);
   return (
-    <Provider store={store}>
-      <div class="mybox">
-          <Counter/>
-          <Todolist></Todolist>
+      <div className='mybox'>
+        <p>You clicked {count} times</p>
+        <button onClick={() => setCount(count + 1)}>Click me</button>
       </div>
-    </Provider>
+
 )}
 
 export default App;
